@@ -1,0 +1,11 @@
+
+  "name": "python-webhook-solution",
+  "private": true,
+  "scripts": {
+    "start": "python src/main.py",
+    "test": "python -m unittest discover -s tests"
+  },
+  "dependencies": {
+    "requests": "^2.31.0"
+  }
+}
