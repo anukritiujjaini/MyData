@@ -15,9 +15,9 @@ class TestAPIClient(unittest.TestCase):
         """Set up test environment."""
         self.api_client = APIClient()
         self.user_data = {
-            "name": "Test User",
-            "regNo": "REG12345",
-            "email": "test@example.com"
+            "name": "Anukriti Ujjainiya",
+            "regNo": "0827AL221029",
+            "email": "anukritiujjainiya@acropolis.in"
         }
         
     @patch('requests.post')
@@ -27,7 +27,7 @@ class TestAPIClient(unittest.TestCase):
         mock_response = MagicMock()
         mock_response.status_code = 200
         mock_response.json.return_value = {
-            "webhook": "https://example.com/webhook",
+            "webhook": "https://webhook.site/5adf9848-b71c-4f50-98b4-c84f9cef6a65",
             "accessToken": "token123"
         }
         mock_post.return_value = mock_response
@@ -37,7 +37,7 @@ class TestAPIClient(unittest.TestCase):
         
         # Assertions
         self.assertIsNotNone(result)
-        self.assertEqual(result["webhook"], "https://example.com/webhook")
+        self.assertEqual(result["webhook"], "https://webhook.site/5adf9848-b71c-4f50-98b4-c84f9cef6a65")
         self.assertEqual(result["accessToken"], "token123")
         
     @patch('requests.post')
@@ -66,7 +66,7 @@ class TestAPIClient(unittest.TestCase):
         
         # Call the method
         result = self.api_client.submit_solution(
-            "https://example.com/webhook",
+            "https://webhook.site/5adf9848-b71c-4f50-98b4-c84f9cef6a65",
             "token123",
             "SELECT * FROM users"
         )
@@ -86,7 +86,7 @@ class TestAPIClient(unittest.TestCase):
         
         # Call the method
         result = self.api_client.submit_solution(
-            "https://example.com/webhook",
+            "https://webhook.site/5adf9848-b71c-4f50-98b4-c84f9cef6a65k",
             "invalid_token",
             "SELECT * FROM users"
         )
